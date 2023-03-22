@@ -1,7 +1,7 @@
 <div *ngIf="step=='enterName'" class="name-card">
     <h1 class="name">What is your name?</h1>
     <form class="flex-display-col">
-        <input class="background" appRestrictName type="text" #name (keyup)="getValue(name.value)" name="name" placeholder="-Type here-" ngModel>
+        <input class="background" autocomplete="off" appRestrictName type="text" #name (keyup)="getValue(name.value)" name="name" placeholder="-Type here-" ngModel>
         <br />
         <button [ngClass]="formInvalid == true ? '' : 'activeButton background'" [disabled]="formInvalid" (click)="nameButton()">Next</button>
     </form>
@@ -74,7 +74,7 @@
     <div style="display: flex; flex-direction: column;">
         <p style="font-size: 28px; font-weight: 500; color: white;">Type room code below</p>
         <form #roomForm="ngForm" >
-            <input class="background" appShowDigits id="room-code" maxlength="6" type="text" #code (keyup)="getCodeValue(code.value)" name="code" placeholder="-Type here-" ngModel>
+            <input autocomplete="off" class="background" appShowDigits id="room-code" maxlength="6" type="text" #code (keyup)="getCodeValue(code.value)" name="code" placeholder="-Type here-" ngModel>
         </form>
     </div>
 
@@ -94,9 +94,9 @@
     </div>
 
     <div style="display: flex; flex-direction: column; gap:2rem;">
-        <input class="background" type="text" #roomName name="roomName" (keyup)="getRoomInfo(roomNo.value,roomName.value)" placeholder="-Room name-" ngModel>
+        <input autocomplete="off" class="background" type="text" #roomName name="roomName" (keyup)="getRoomInfo(roomNo.value,roomName.value)" placeholder="-Room name-" ngModel>
     
-        <input class="background" appDigitLimit maxlength="1" type="text" #roomNo (keyup)="getRoomInfo(roomNo.value,roomName.value)" name="roomNo" placeholder="-No of players-" ngModel>
+        <input autocomplete="off" class="background" appDigitLimit maxlength="1" type="text" #roomNo (keyup)="getRoomInfo(roomNo.value,roomName.value)" name="roomNo" placeholder="-No of players-" ngModel>
     </div>
 
     <button [ngClass]="roomCreated == false ? '' : ' background'" [disabled]="!roomCreated" (click)="createRoomButton()">Create</button>
